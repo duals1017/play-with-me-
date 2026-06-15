@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>똔개랑 놀아줘!</title>
+    <style>
+        body { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; margin: 0; font-family: 'Arial', sans-serif; background-color: #fff9f9;
+        }
+        /* 이미지 크기 확대 */
+        #cat-img { 
+            width: 90%; 
+            max-width: 600px; 
+            height: 500px; 
+            object-fit: contain; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        }
+        h1 { font-size: 1.8rem; margin-top: 20px; text-align: center; }
+        
+        .buttons { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            gap: 20px; 
+            margin-top: 30px; 
+            width: 100%;
+        }
+        
+        button { 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            cursor: pointer; 
+            border: none; 
+            border-radius: 15px; 
+            font-weight: bold; 
+            transition: 0.3s; 
+        }
+        #yesBtn { background-color: #ff9999; color: white; }
+        #noBtn { background-color: #e0e0e0; }
+    </style>
+</head>
+<body>
+
+    <h1 id="message">똔개랑 놀아줄 사람???</h1>
+    <img id="cat-img" src="https://i.imgur.com/FDT2H1Z.jpeg" alt="똔개">
+    
+    <div class="buttons">
+        <button id="yesBtn" onclick="accept()">똔고양이가 놀아줄게!!</button>
+        <button id="noBtn" onclick="shrinkNo()">똔개 혼자 놀아...</button>
+    </div>
+
+    <script>
+        let count = 0;
+        let yesSize = 18; // 초기 폰트 사이즈
+        let noSize = 18;
+        
+        const stages = [
+            { text: "진짜 안 놀아줄 거야...?", img: "https://i.imgur.com/UiHKm69.jpeg" },
+            { text: "진짜로...?", img: "https://i.imgur.com/EQQ7EyY.jpeg" },
+            { text: "에휴.......", img: "https://i.imgur.com/NlisrYv.jpeg" },
+            { text: "똔개 삐졌어.", img: "https://i.imgur.com/my3Z3ik.jpeg" },
+            { text: "똔고양이가 안놀아준대요...", img: "https://i.imgur.com/UiHKm69.jpeg" }
+        ];
+
+        function accept() {
+            document.getElementById('message').innerText = "아싸!!!!!!!!!!";
+            document.getElementById('cat-img').src = "https://i.imgur.com/k3tg66e.jpeg";
+            document.querySelector('.buttons').style.display = "none";
+        }
+
+        function shrinkNo() {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const img = document.getElementById('cat-img');
+            const msg = document.getElementById('message');
+            
+            // 이미지 및 텍스트 업데이트
+            if (count < stages.length) {
+                msg.innerText = stages[count].text;
+                img.src = stages[count].img;
+                count++;
+            } else {
+                msg.innerText = "넌 똔개와 놀아줘야만 해.";
+                img.src = "https://i.imgur.com/FEMPNOf.jpeg";
+            }
+            
+            // 버튼 크기 변화 (yes 커지고, no 작아짐)
+            yesSize += 5;
+            noSize -= 2;
+            
+            yesBtn.style.fontSize = yesSize + "px";
+            yesBtn.style.padding = (15 + count * 2) + "px " + (30 + count * 5) + "px";
+            
+            noBtn.style.fontSize = Math.max(5, noSize) + "px";
+            
+            // no 버튼이 너무 작아지면 안 보이게 처리
+            if (noSize <= 5) {
+                noBtn.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
