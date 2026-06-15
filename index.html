@@ -13,16 +13,15 @@
             min-height: 100vh; margin: 0; font-family: 'Pretendard', sans-serif; background-color: #fff9f9;
             padding: 20px; box-sizing: border-box;
         }
-        /* 로고 스타일 */
-        #logo { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; }
         
+        /* 메인 이미지 크기 크게 설정 */
         #cat-img { 
-            width: 100%; max-width: 400px; height: 350px; 
+            width: 100%; max-width: 600px; height: 500px; 
             object-fit: contain; border-radius: 20px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
             background-color: #fff;
         }
-        h1 { font-size: 1.5rem; margin-top: 15px; text-align: center; word-break: keep-all; }
+        h1 { font-size: 1.8rem; margin-top: 20px; text-align: center; word-break: keep-all; }
         .buttons { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; width: 100%; height: 70px; }
         
         button { 
@@ -37,8 +36,6 @@
     </style>
 </head>
 <body>
-
-    <img id="logo" src="parapara.jpeg" alt="로고">
 
     <h1 id="message">똔개랑 놀아줄 사람???</h1>
     <img id="cat-img" src="parapara.jpeg" alt="똔개">
@@ -73,7 +70,6 @@
             const img = document.getElementById('cat-img');
             const msg = document.getElementById('message');
             
-            // 6번째 누름 확인 (count가 5가 되는 시점)
             if (count >= 5) {
                 msg.innerText = "넌 똔개와 놀아줘야만 해.";
                 img.src = "final.jpg";
