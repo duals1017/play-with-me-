@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="icon" href="https://i.imgur.com/FDT2H1Z.jpeg">
+    <link rel="icon" href="parapara.jpeg">
     <meta name="referrer" content="no-referrer">
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
     <title>똔개랑 놀아줘!</title>
@@ -27,7 +27,10 @@
         
         button { 
             padding: 12px 24px; font-size: 16px; cursor: pointer; border: none; border-radius: 12px; 
-            font-weight: bold; transition: all 0.2s; color: black; 
+            font-weight: bold; transition: all 0.2s; 
+            color: black !important;
+            text-decoration: none !important;
+            -webkit-tap-highlight-color: transparent;
         }
         #yesBtn { background-color: #ff9999; color: white !important; }
         #noBtn { background-color: #e0e0e0; color: black !important; }
@@ -35,10 +38,10 @@
 </head>
 <body>
 
-    <img id="logo" src="로고_이미지_주소_여기에" alt="로고">
+    <img id="logo" src="parapara.jpeg" alt="로고">
 
     <h1 id="message">똔개랑 놀아줄 사람???</h1>
-    <img id="cat-img" src="https://i.imgur.com/FDT2H1Z.jpeg" alt="똔개">
+    <img id="cat-img" src="parapara.jpeg" alt="똔개">
     
     <div class="buttons">
         <button id="yesBtn" onclick="accept()">똔고양이가 놀아줄게!!</button>
@@ -51,16 +54,16 @@
         let noSize = 16;
         
         const stages = [
-            { text: "진짜 안 놀아줄 거야...?", img: "https://i.imgur.com/x4Wn6Yn.jpeg" },
-            { text: "진짜로...?", img: "https://i.imgur.com/UfKk9gH.jpeg" },
-            { text: "에휴.......", img: "https://i.imgur.com/NlisrYv.jpeg" },
-            { text: "똔개 삐졌어.", img: "https://i.imgur.com/my3Z3ik.jpeg" },
-            { text: "똔고양이가 안놀아준대요...", img: "https://i.imgur.com/UiHKm69.jpeg" }
+            { text: "진짜 안 놀아줄 거야...?", img: "simuruk.jpeg" },
+            { text: "진짜로...?", img: "back.jpeg" },
+            { text: "에휴.......", img: "sit.jpeg" },
+            { text: "똔개 삐졌어.", img: "sad.jpeg" },
+            { text: "똔고양이가 안놀아준대요...", img: "haru.jpg" }
         ];
 
         function accept() {
             document.getElementById('message').innerText = "아싸!!!!!!!!!!";
-            document.getElementById('cat-img').src = "https://i.imgur.com/k3tg66e.jpeg";
+            document.getElementById('cat-img').src = "happy.jpg";
             document.querySelector('.buttons').style.display = "none";
         }
 
@@ -73,7 +76,7 @@
             // 6번째 누름 확인 (count가 5가 되는 시점)
             if (count >= 5) {
                 msg.innerText = "넌 똔개와 놀아줘야만 해.";
-                img.src = "https://i.imgur.com/FEMPNOf.jpeg";
+                img.src = "final.jpg";
                 noBtn.style.display = "none";
                 return;
             }
