@@ -2,42 +2,43 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="referrer" content="no-referrer">
     <title>똔개랑 놀아줘!</title>
     <style>
         body { 
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            height: 100vh; margin: 0; font-family: 'Arial', sans-serif; background-color: #fff9f9;
+            min-height: 100vh; margin: 0; font-family: 'Pretendard', sans-serif; background-color: #fff9f9;
+            padding: 20px; box-sizing: border-box;
         }
-        /* 이미지 크기 확대 */
         #cat-img { 
-            width: 90%; 
-            max-width: 600px; 
-            height: 500px; 
+            width: 100%; 
+            max-width: 400px; 
+            height: 350px; 
             object-fit: contain; 
             border-radius: 20px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
         }
-        h1 { font-size: 1.8rem; margin-top: 20px; text-align: center; }
+        h1 { font-size: 1.5rem; margin-top: 20px; text-align: center; word-break: keep-all; }
         
         .buttons { 
             display: flex; 
             justify-content: center; 
             align-items: center;
-            gap: 20px; 
+            gap: 15px; 
             margin-top: 30px; 
             width: 100%;
+            height: 60px;
         }
         
         button { 
-            padding: 15px 30px; 
-            font-size: 18px; 
+            padding: 12px 24px; 
+            font-size: 16px; 
             cursor: pointer; 
             border: none; 
-            border-radius: 15px; 
+            border-radius: 12px; 
             font-weight: bold; 
-            transition: 0.3s; 
+            transition: all 0.2s; 
         }
         #yesBtn { background-color: #ff9999; color: white; }
         #noBtn { background-color: #e0e0e0; }
@@ -55,12 +56,12 @@
 
     <script>
         let count = 0;
-        let yesSize = 18; // 초기 폰트 사이즈
-        let noSize = 18;
+        let yesSize = 16;
+        let noSize = 16;
         
         const stages = [
-            { text: "진짜 안 놀아줄 거야...?", img: "https://i.imgur.com/UiHKm69.jpeg" },
-            { text: "진짜로...?", img: "https://i.imgur.com/EQQ7EyY.jpeg" },
+            { text: "진짜 안 놀아줄 거야...?", img: "https://i.imgur.com/x4Wn6Yn.jpeg" },
+            { text: "진짜로...?", img: "https://i.imgur.com/UfKk9gH.jpeg" },
             { text: "에휴.......", img: "https://i.imgur.com/NlisrYv.jpeg" },
             { text: "똔개 삐졌어.", img: "https://i.imgur.com/my3Z3ik.jpeg" },
             { text: "똔고양이가 안놀아준대요...", img: "https://i.imgur.com/UiHKm69.jpeg" }
@@ -78,27 +79,28 @@
             const img = document.getElementById('cat-img');
             const msg = document.getElementById('message');
             
-            // 이미지 및 텍스트 업데이트
             if (count < stages.length) {
                 msg.innerText = stages[count].text;
                 img.src = stages[count].img;
                 count++;
             } else {
+                // 마지막 단계에서 아예 버튼 제거
                 msg.innerText = "넌 똔개와 놀아줘야만 해.";
                 img.src = "https://i.imgur.com/FEMPNOf.jpeg";
+                noBtn.style.display = "none";
+                return;
             }
             
-            // 버튼 크기 변화 (yes 커지고, no 작아짐)
-            yesSize += 5;
-            noSize -= 2;
+            // 버튼 크기 변화
+            yesSize += 4;
+            noSize -= 3;
             
             yesBtn.style.fontSize = yesSize + "px";
-            yesBtn.style.padding = (15 + count * 2) + "px " + (30 + count * 5) + "px";
+            yesBtn.style.padding = (12 + count) + "px " + (24 + count * 2) + "px";
             
-            noBtn.style.fontSize = Math.max(5, noSize) + "px";
+            noBtn.style.fontSize = Math.max(8, noSize) + "px";
             
-            // no 버튼이 너무 작아지면 안 보이게 처리
-            if (noSize <= 5) {
+            if (noSize <= 8) {
                 noBtn.style.display = "none";
             }
         }
