@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="icon" href="parapara.jpeg">
+    
+    <link rel="icon" href="parapara.jpeg?v=2">
+    <link rel="apple-touch-icon" href="parapara.jpeg?v=2">
+    
     <meta name="referrer" content="no-referrer">
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
     <title>똔개랑 놀아줘!</title>
@@ -14,7 +17,6 @@
             padding: 20px; box-sizing: border-box;
         }
         
-        /* 메인 이미지 크기 크게 설정 */
         #cat-img { 
             width: 100%; max-width: 600px; height: 500px; 
             object-fit: contain; border-radius: 20px; 
@@ -38,7 +40,7 @@
 <body>
 
     <h1 id="message">똔개랑 놀아줄 사람???</h1>
-    <img id="cat-img" src="parapara.jpeg" alt="똔개">
+    <img id="cat-img" src="parapara.jpeg?v=2" alt="똔개">
     
     <div class="buttons">
         <button id="yesBtn" onclick="accept()">똔고양이가 놀아줄게!!</button>
@@ -51,16 +53,16 @@
         let noSize = 16;
         
         const stages = [
-            { text: "진짜 안 놀아줄 거야...?", img: "simuruk.jpeg" },
-            { text: "진짜로...?", img: "back.jpeg" },
-            { text: "에휴.......", img: "sit.jpeg" },
-            { text: "똔개 삐졌어.", img: "sad.jpeg" },
-            { text: "똔고양이가 안놀아준대요...", img: "haru.jpg" }
+            { text: "진짜 안 놀아줄 거야...?", img: "simuruk.jpeg?v=2" },
+            { text: "진짜로...?", img: "back.jpeg?v=2" },
+            { text: "에휴.......", img: "sit.jpeg?v=2" },
+            { text: "똔개 삐졌어.", img: "sad.jpeg?v=2" },
+            { text: "똔고양이가 안놀아준대요...", img: "haru.jpg?v=2" }
         ];
 
         function accept() {
             document.getElementById('message').innerText = "아싸!!!!!!!!!!";
-            document.getElementById('cat-img').src = "happy.jpg";
+            document.getElementById('cat-img').src = "happy.jpg?v=2";
             document.querySelector('.buttons').style.display = "none";
         }
 
@@ -72,7 +74,7 @@
             
             if (count >= 5) {
                 msg.innerText = "넌 똔개와 놀아줘야만 해.";
-                img.src = "final.jpg";
+                img.src = "final.jpg?v=2";
                 noBtn.style.display = "none";
                 return;
             }
