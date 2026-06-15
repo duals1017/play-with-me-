@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="https://i.imgur.com/FDT2H1Z.jpeg">
     <meta name="referrer" content="no-referrer">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
     <title>똔개랑 놀아줘!</title>
     <style>
         body { 
@@ -11,19 +13,29 @@
             min-height: 100vh; margin: 0; font-family: 'Pretendard', sans-serif; background-color: #fff9f9;
             padding: 20px; box-sizing: border-box;
         }
+        /* 로고 스타일 */
+        #logo { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; }
+        
         #cat-img { 
             width: 100%; max-width: 400px; height: 350px; 
             object-fit: contain; border-radius: 20px; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            background-color: #fff;
         }
-        h1 { font-size: 1.5rem; margin-top: 20px; text-align: center; word-break: keep-all; }
-        .buttons { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; width: 100%; height: 60px; }
-        button { padding: 12px 24px; font-size: 16px; cursor: pointer; border: none; border-radius: 12px; font-weight: bold; transition: all 0.2s; }
-        #yesBtn { background-color: #ff9999; color: white; }
-        #noBtn { background-color: #e0e0e0; }
+        h1 { font-size: 1.5rem; margin-top: 15px; text-align: center; word-break: keep-all; }
+        .buttons { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 30px; width: 100%; height: 70px; }
+        
+        button { 
+            padding: 12px 24px; font-size: 16px; cursor: pointer; border: none; border-radius: 12px; 
+            font-weight: bold; transition: all 0.2s; color: black; 
+        }
+        #yesBtn { background-color: #ff9999; color: white !important; }
+        #noBtn { background-color: #e0e0e0; color: black !important; }
     </style>
 </head>
 <body>
+
+    <img id="logo" src="로고_이미지_주소_여기에" alt="로고">
 
     <h1 id="message">똔개랑 놀아줄 사람???</h1>
     <img id="cat-img" src="https://i.imgur.com/FDT2H1Z.jpeg" alt="똔개">
@@ -58,20 +70,18 @@
             const img = document.getElementById('cat-img');
             const msg = document.getElementById('message');
             
-            // count가 4일 때(5번째 단계) 누르면 6번째 동작이 일어남
-            if (count === 4) {
+            // 6번째 누름 확인 (count가 5가 되는 시점)
+            if (count >= 5) {
                 msg.innerText = "넌 똔개와 놀아줘야만 해.";
                 img.src = "https://i.imgur.com/FEMPNOf.jpeg";
-                noBtn.style.display = "none"; // 6번째 누름에 즉시 제거
+                noBtn.style.display = "none";
                 return;
             }
             
-            // 단계 진행
             msg.innerText = stages[count].text;
             img.src = stages[count].img;
             count++;
             
-            // 버튼 크기 변화
             yesSize += 6;
             noSize -= 3;
             
