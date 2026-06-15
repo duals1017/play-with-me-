@@ -58,15 +58,15 @@
             const img = document.getElementById('cat-img');
             const msg = document.getElementById('message');
             
-            // 6번째 눌렀을 때 (count가 5일 때, 즉 stages 마지막 단계일 때)
+            // count가 4일 때(5번째 단계) 누르면 6번째 동작이 일어남
             if (count === 4) {
                 msg.innerText = "넌 똔개와 놀아줘야만 해.";
                 img.src = "https://i.imgur.com/FEMPNOf.jpeg";
-                noBtn.style.display = "none"; // 6번째에서 완전히 제거
+                noBtn.style.display = "none"; // 6번째 누름에 즉시 제거
                 return;
             }
             
-            // 그 전까지는 단계 진행
+            // 단계 진행
             msg.innerText = stages[count].text;
             img.src = stages[count].img;
             count++;
@@ -76,7 +76,7 @@
             noSize -= 3;
             
             yesBtn.style.fontSize = yesSize + "px";
-            yesBtn.style.padding = (12 + count) + "px " + (24 + count * 3) + "px";
+            yesBtn.style.padding = (12 + count) + "px " + (24 + count * 4) + "px";
             
             noBtn.style.fontSize = Math.max(8, noSize) + "px";
         }
